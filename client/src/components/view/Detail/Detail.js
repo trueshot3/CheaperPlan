@@ -28,6 +28,10 @@ const Detail = () => {
     setSelectedItem(item);
   };
 
+  const handlePurchase = () => {
+    console.log(SelectedItem);
+  }
+
   const descItems = [
     {
       key: '1',
@@ -92,7 +96,7 @@ const Detail = () => {
         {QuantityVisible &&
           <InputNumber min={1} max={10} defaultValue={1} onChange={quantityChange} style={{ display: 'flex', marginTop: '20px', width: '25%' }} />}
         <Button style={{ width: '50%', height: '40px', margin: '20px 0' }}>장바구니</Button>
-        <Button type="primary" style={{ width: '50%', height: '40px' }}>구매하기</Button>
+        <Button onClick={handlePurchase} type="primary" style={{ width: '50%', height: '40px' }}>구매하기</Button>
       </div>
       <BackFloatButton />
     </div>
