@@ -6,6 +6,7 @@ import Detail from "./view/Detail/Detail";
 import ListType from "./view/ListType/ListType";
 import Login from "./view/Login/Login";
 import SignUp from "./view/Login/SignUp";
+import Notice from "./view/Notice/Notice";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
             <Route path="/list/:itemType" element={<ListType />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signup" element={<SignUp />} />
+            <Route path="/notice" element={<Notice />} />
           </Routes >
         </Router>
       </div>

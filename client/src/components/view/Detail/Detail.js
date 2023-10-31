@@ -6,7 +6,9 @@ import BackFloatButton from '../BackFloatButton/BackFloatButton';
 
 const Detail = () => {
   const { itemId } = useParams();
-  const currentItem = SHOP_ITEMS[itemId - 1];
+  const idx = SHOP_ITEMS.findIndex(item => item.id === Number(itemId));
+  const currentItem = SHOP_ITEMS[idx];
+  console.log(idx);
   const [QuantityVisible, setQuantityVisible] = useState(false)
   const [SelectedItem, setSelectedItem] = useState({
     itemId: currentItem.id,
@@ -27,6 +29,10 @@ const Detail = () => {
     item.quantity = value;
     setSelectedItem(item);
   };
+
+  const handlePurchase = () => {
+    console.log(SelectedItem);
+  }
 
   const descItems = [
     {
@@ -92,7 +98,7 @@ const Detail = () => {
         {QuantityVisible &&
           <InputNumber min={1} max={10} defaultValue={1} onChange={quantityChange} style={{ display: 'flex', marginTop: '20px', width: '25%' }} />}
         <Button style={{ width: '50%', height: '40px', margin: '20px 0' }}>장바구니</Button>
-        <Button type="primary" style={{ width: '50%', height: '40px' }}>구매하기</Button>
+        <Button onClick={handlePurchase} type="primary" style={{ width: '50%', height: '40px' }}>구매하기</Button>
       </div>
       <BackFloatButton />
     </div>

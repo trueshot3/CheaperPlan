@@ -19,8 +19,20 @@ const items = [
   },
 ];
 
+const menu_list = [
+  {
+    label: (<a href='/notice'>공지사항</a>),
+    key: 'notice'
+  }, {
+    label: '베스트',
+    key: 'best'
+  }, {
+    label: 'NEW',
+    key: 'new'
+  }
+];
+
 const NavBar = () => {
-  const menu_list = ['공지사항', '베스트', 'NEW'];
 
   return (
     <Layout className="layout">
@@ -48,13 +60,7 @@ const NavBar = () => {
         <Menu
           theme="dark"
           mode="horizontal"
-          items={menu_list.map((menu, index) => {
-            const key = index;
-            return {
-              key,
-              label: menu,
-            };
-          })}
+          items={menu_list}
         />
         <div style={{ width: '100%', display: 'flex', justifyContent: 'right' }}>
           <Button type="default" shape="circle" icon={<ShoppingCartOutlined />} size='large' style={{ margin: '0 20px' }} />
